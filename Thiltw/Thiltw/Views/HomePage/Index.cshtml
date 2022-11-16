@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Thiltw.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+@Styles.Render("~/Content/css")
+
+
+<br />
+<br />
+<br />
+<div class="row">
+    <div class="banner col-md-12">
+
+
+
+        <img src="~/Images/hinhanhbanner.jpg" width="84%" />
+
+
+        <div class="menu">
+
+            <ul>
+                <li><a href="#">Sách giáo khoa</a></li>
+                
+            </ul>
+           
+            <ul>
+                <li><a href="#">Tiểu thuyết</a></li>
+
+            </ul>
+
+        </div>
+
+       
+
+
+    </div>
+
+   
+
+</div>
+<div class="row">
+    @foreach (var i in Model)
+    {
+        <div class="col-md-4 col-lg-4" style="margin-top:5%">
+            <div class="card" style="width: 18rem;">
+                <a href="/HomePage/details/@i.Id" style="text-decoration: none">
+                    <img src="~/Images/@i.Image" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <a href="/HomePage/details/@i.Id" style="text-decoration: none">
+                        <h5 class="card-title">@i.Name</h5>
+                    </a>
+                    <p class="card-text">@i.Price VND</p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

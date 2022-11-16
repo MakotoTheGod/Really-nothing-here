@@ -1,0 +1,16 @@
+CREATE TABLE [dbo].[Author](
+[Id] INT IDENTITY (1, 1) NOT NULL,
+[Name] nvarchar(50) null,
+[Address] nvarchar(100) null,
+PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+CREATE TABLE [dbo].[Book](
+[Id] INT IDENTITY (1, 1) NOT NULL,
+[Name] NVARCHAR(50) NULL,
+[Decription] NVARCHAR (MAX) NULL,
+[Price] Nvarchar(20) NULL,
+[Image] NVARCHAR (MAX) NULL,
+[AuthorId] int null,
+ PRIMARY KEY CLUSTERED ([Id] ASC),
+ FOREIGN KEY ([AuthorId]) REFERENCES [dbo].[Author] ([Id])
+ );
